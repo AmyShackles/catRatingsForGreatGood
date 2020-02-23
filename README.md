@@ -30,11 +30,14 @@
   - [IBAction](#ibaction)
   - [Initializer](#initializer)
   - [Implicitly Unwrapped Optional](#implicitly-unwrapped-optional)
+  - [Navigation Controller](#navigation-controller)
+  - [Navigation Stack](#navigation-stack)
   - [Optional](#optional)
   - [Outlet](#outlet)
   - [private](#private)
   - [Property Observer](#property-observer)
   - [Protocol](#protocol)
+  - [Root View Controller](#root-view-controller)
   - [Scene](#scene)
   - [Segue](#segue)
   - [Table View Controller](#table-view-controller)
@@ -129,6 +132,12 @@ These are the five lifecycle methods associated with the UIView Controller, in o
 ### Initializer
 - A method that prepares an instance of a class for use -> setting initial values for each property and performing any other setup.  There are two kinds of init for initializing a view - one for programmatically initializing the view (`init(frame:)`) and one for loading the view from storyboard (`init(coder:)`).
 
+### Navigation Controller
+- Manages transitions backward and forward through a series of view controllers.
+
+### Navigation Stack
+- The set of view controllers managed by a particular navigation controller
+
 ### Optional
 - Can etiher contain a valid value or nil
 
@@ -143,6 +152,9 @@ These are the five lifecycle methods associated with the UIView Controller, in o
 
 ### Protocol
 - Defines a delegate -- gets added in class declaration
+
+### Root View Controller
+- First item added to the navigation stack and never popped off the stack.
 
 ### Scene
   - One screen of content and typically one view controller.
