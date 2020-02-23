@@ -40,6 +40,8 @@
   - [Root View Controller](#root-view-controller)
   - [Scene](#scene)
   - [Segue](#segue)
+    - [Modal](#modal)
+    - [Show](#show)
   - [Table View Controller](#table-view-controller)
   - [Table View Data Source](#table-view-data-source)
   - [Table View Data Source Methods](#table-view-data-source-methods)
@@ -164,6 +166,10 @@ These are the five lifecycle methods associated with the UIView Controller, in o
 
 ### Segue
 - Transitions between scenes
+  #### Modal
+  - Useful for situations where a user performs an action that's complete and self-contained and then returns from that scene to the main navigation
+  #### Show
+   - Designed for a drill-down interface where you're providing more information about whatever the user selected.
 
 ### Table View Controller
 - A subclass of UIViewController, used for displaying tabular data.  In order to display dynamic data, a table view needs a data source and a delegate.
