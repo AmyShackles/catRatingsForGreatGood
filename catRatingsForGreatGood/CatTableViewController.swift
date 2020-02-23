@@ -96,6 +96,16 @@ class CatTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: Actions
+    @IBAction func unwindToCatList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? CatViewController, let cat = sourceViewController.cat {
+            // Add a new cat
+            let newIndexPath = IndexPath(row: cats.count, section:0)
+            cats.append(cat)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
     //MARK: Private Methods
      
     private func loadSampleCats() {

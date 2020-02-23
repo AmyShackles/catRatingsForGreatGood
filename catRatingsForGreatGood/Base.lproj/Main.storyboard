@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WtZ-gE-ovm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c2Z-O8-cjn">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -7,24 +7,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cat View Controller-->
+        <!--Add Cat-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CatViewController" customModule="catRatingsForGreatGood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dmy-j4-qs6">
-                                <rect key="frame" x="20" y="62" width="335" height="420"/>
+                                <rect key="frame" x="20" y="118" width="335" height="344"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Cat's Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhp-NQ-5tN">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-Q0-qiF">
-                                        <rect key="frame" x="7.5" y="48" width="320" height="320"/>
+                                        <rect key="frame" x="25.5" y="8" width="284" height="284"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Yrr-Q0-qiF" secondAttribute="height" multiplier="1:1" id="U8a-2b-tpP"/>
@@ -35,7 +35,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sCO-33-DRL" customClass="RatingControl" customModule="catRatingsForGreatGood" customModuleProvider="target">
-                                        <rect key="frame" x="41.5" y="376" width="252" height="44"/>
+                                        <rect key="frame" x="41.5" y="300" width="252" height="44"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="size" keyPath="starSize">
                                                 <size key="value" width="44" height="44"/>
@@ -60,22 +60,32 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Cat" id="UkJ-VM-fGe">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pZD-C8-bxL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ggU-Po-pAe">
+                            <connections>
+                                <segue destination="VU2-22-Zpi" kind="unwind" unwindAction="unwindToCatListWithSender:" id="icU-Lo-ZRR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="catNameTextField" destination="uhp-NQ-5tN" id="S7E-Hy-8ox"/>
                         <outlet property="photoImageView" destination="Yrr-Q0-qiF" id="ZqS-g8-vun"/>
                         <outlet property="ratingControl" destination="sCO-33-DRL" id="oxv-Rq-Tqm"/>
+                        <outlet property="saveButton" destination="ggU-Po-pAe" id="KqC-MA-Tlw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="VU2-22-Zpi" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="e2d-Hc-Ye7">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="a4h-Vf-Nf1"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+            <point key="canvasLocation" x="2015.2" y="126.38680659670166"/>
         </scene>
-        <!--Cat Table View Controller-->
+        <!--Your Cats-->
         <scene sceneID="cgD-hX-uVr">
             <objects>
                 <tableViewController id="WtZ-gE-ovm" customClass="CatTableViewController" customModule="catRatingsForGreatGood" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,20 +108,23 @@
                                                 <constraint firstAttribute="height" constant="90" id="w4f-AA-eqO"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppe-Hw-heh">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppe-Hw-heh">
                                             <rect key="frame" x="98" y="11" width="261" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="p8c-oQ-PPh" customClass="RatingControl" customModule="catRatingsForGreatGood" customModuleProvider="target">
+                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="p8c-oQ-PPh" customClass="RatingControl" customModule="catRatingsForGreatGood" customModuleProvider="target">
                                             <rect key="frame" x="98" y="40" width="252" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </stackView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="p8c-oQ-PPh" firstAttribute="top" secondItem="ppe-Hw-heh" secondAttribute="bottom" constant="8" id="Lsw-Is-6tQ"/>
+                                        <constraint firstItem="ppe-Hw-heh" firstAttribute="leading" secondItem="p8c-oQ-PPh" secondAttribute="leading" id="Mv2-du-u18"/>
+                                        <constraint firstItem="ppe-Hw-heh" firstAttribute="trailing" secondItem="5Pr-ze-M78" secondAttribute="trailingMargin" id="RcM-QH-1Xk"/>
                                         <constraint firstItem="dan-pg-RGb" firstAttribute="leading" secondItem="5Pr-ze-M78" secondAttribute="leading" id="Rpz-5Z-XLr"/>
+                                        <constraint firstItem="ppe-Hw-heh" firstAttribute="leading" secondItem="dan-pg-RGb" secondAttribute="trailing" constant="8" id="U39-Fp-u93"/>
+                                        <constraint firstItem="ppe-Hw-heh" firstAttribute="top" secondItem="5Pr-ze-M78" secondAttribute="topMargin" id="Xbt-su-x4V"/>
                                         <constraint firstItem="dan-pg-RGb" firstAttribute="top" secondItem="5Pr-ze-M78" secondAttribute="top" id="hH1-YJ-xNO"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -127,10 +140,53 @@
                             <outlet property="delegate" destination="WtZ-gE-ovm" id="MXs-rf-EcE"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Your Cats" id="Oxg-RV-HFd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4P2-vK-J1Q">
+                            <connections>
+                                <segue destination="gMi-CZ-N7o" kind="presentation" identifier="AddItem" id="NVx-fu-rff"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKk-uQ-qy7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="112.8" y="125.4872563718141"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qyp-q7-BHU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c2Z-O8-cjn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t9V-jw-cM6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WtZ-gE-ovm" kind="relationship" relationship="rootViewController" id="GsI-Yn-yOF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gAe-Qj-hUR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-826.39999999999998" y="125.4872563718141"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PJq-BR-ltz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gMi-CZ-N7o" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wEK-7j-iqI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="RpT-sN-OQf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWc-OF-2Ci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="126.38680659670166"/>
         </scene>
     </scenes>
     <resources>
