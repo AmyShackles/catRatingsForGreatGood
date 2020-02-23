@@ -10,21 +10,21 @@
         <!--Cat View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CatViewController" customModule="covii" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CatViewController" customModule="catRatingsForGreatGood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dmy-j4-qs6">
-                                <rect key="frame" x="20" y="62" width="335" height="414"/>
+                                <rect key="frame" x="20" y="62" width="335" height="420"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Cat's Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhp-NQ-5tN">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-Q0-qiF">
-                                        <rect key="frame" x="7.5" y="42" width="320" height="320"/>
+                                        <rect key="frame" x="7.5" y="48" width="320" height="320"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Yrr-Q0-qiF" secondAttribute="height" multiplier="1:1" id="U8a-2b-tpP"/>
@@ -34,8 +34,8 @@
                                             <outletCollection property="gestureRecognizers" destination="e2d-Hc-Ye7" appends="YES" id="pYK-7R-EQC"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sCO-33-DRL" customClass="RatingControl" customModule="covii" customModuleProvider="target">
-                                        <rect key="frame" x="41.5" y="370" width="252" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sCO-33-DRL" customClass="RatingControl" customModule="catRatingsForGreatGood" customModuleProvider="target">
+                                        <rect key="frame" x="41.5" y="376" width="252" height="44"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="size" keyPath="starSize">
                                                 <size key="value" width="44" height="44"/>
@@ -56,6 +56,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dmy-j4-qs6" secondAttribute="trailing" constant="20" id="0Rr-qx-hnE"/>
                             <constraint firstItem="Dmy-j4-qs6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2wY-nu-qCz"/>
                             <constraint firstItem="Dmy-j4-qs6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="62" id="XaG-q6-6zK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dmy-j4-qs6" secondAttribute="bottom" constant="185" id="xhF-dr-EEA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -77,13 +78,13 @@
         <!--Cat Table View Controller-->
         <scene sceneID="cgD-hX-uVr">
             <objects>
-                <tableViewController id="WtZ-gE-ovm" customClass="CatTableViewController" customModule="covii" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="WtZ-gE-ovm" customClass="CatTableViewController" customModule="catRatingsForGreatGood" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="J73-gB-fdr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatTableViewCell" rowHeight="90" id="MBw-WY-tba" customClass="CatTableViewCell" customModule="covii" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatTableViewCell" rowHeight="90" id="MBw-WY-tba" customClass="CatTableViewCell" customModule="catRatingsForGreatGood" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MBw-WY-tba" id="5Pr-ze-M78">
@@ -104,7 +105,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="p8c-oQ-PPh" customClass="RatingControl" customModule="covii" customModuleProvider="target">
+                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="p8c-oQ-PPh" customClass="RatingControl" customModule="catRatingsForGreatGood" customModuleProvider="target">
                                             <rect key="frame" x="98" y="40" width="252" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </stackView>
