@@ -36,6 +36,7 @@
   - [Property Observer](#property-observer)
   - [Protocol](#protocol)
   - [Scene](#scene)
+  - [Segue](#segue)
   - [Table View Controller](#table-view-controller)
   - [Table View Data Source](#table-view-data-source)
   - [Table View Data Source Methods](#table-view-data-source-methods)
@@ -148,6 +149,9 @@ These are the five lifecycle methods associated with the UIView Controller, in o
 
 ### Section
 - Visual groupings of cells within table views.  For a simple table view, this may only be one.
+
+### Segue
+- Transitions between scenes
 
 ### Table View Controller
 - A subclass of UIViewController, used for displaying tabular data.  In order to display dynamic data, a table view needs a data source and a delegate.
