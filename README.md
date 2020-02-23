@@ -42,6 +42,7 @@
   - [Segue](#segue)
     - [Modal](#modal)
     - [Show](#show)
+    - [Unwind](#unwind)
   - [Table View Controller](#table-view-controller)
   - [Table View Data Source](#table-view-data-source)
   - [Table View Data Source Methods](#table-view-data-source-methods)
@@ -170,6 +171,8 @@ These are the five lifecycle methods associated with the UIView Controller, in o
   - Useful for situations where a user performs an action that's complete and self-contained and then returns from that scene to the main navigation
   #### Show
    - Designed for a drill-down interface where you're providing more information about whatever the user selected.
+  #### Unwind
+  - Moves backward trough one or more segues to return the user to a scene managed by an existing view controller.  While regular segues create a new instance of the destination view controller, unwind segues let you return to view controllers that already exist.  Used for implementing navigation back to an existing view controller
 
 ### Table View Controller
 - A subclass of UIViewController, used for displaying tabular data.  In order to display dynamic data, a table view needs a data source and a delegate.
