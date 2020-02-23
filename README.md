@@ -20,6 +20,7 @@
 - [Glossary](#glossary)
   - [Action](#action)
   - [Control](#control)
+  - [Data Model](#data-model)
   - [Delegate](#delegate)
   - [Failable Initializers](#failable-initializers)
   - [First Responder](#first-responder)
@@ -49,20 +50,26 @@
 ### AppDelegate
 
 ### Cat
+- This file defines the Cat data model.  This defines the properties on the Cat class, includes some guards to ensure that there is a name for the Cat and that the rating for the Cat is between 0 - 5 inclusive.  This also defines the initialization of the Cat.
 
 ### CatTableViewCell
+- This file defines a custom cell for the CatTableView, defining the design and behavior of each cell.
 
 ### CatTableViewController
+- This file defines a custom table view controller subclass that manages the cat list scene.  It loads the initial list of cats when the view loads.  Instead of creating new cells and deleting old cells as a user scrolls, the `dequeueReusableCell(withIdentifier:for:)` method ensures that the table tries to reuse cells when possible.  This file also holds the Table View Data Source methods.
 
 ### CatViewController
+- This file specifies the behavior of the textfield and the image picker on a cat detail view.
 
 ### RatingControl
+- This file creates the rating buttons displayed by the CatTableViewCell and establishes the appearance and behavior of the rating system.
 
 ### SceneDelegate
 
 ## Storyboard Files
 
 ### Main
+
 
 ## Life Cycle Methods of UIView Controller
 These are the five lifecycle methods associated with the UIView Controller, in order
@@ -89,6 +96,9 @@ These are the five lifecycle methods associated with the UIView Controller, in o
 
 ### Control
 - Specialized versions of views that respond to user actions in a specific way.  While a view displays content, a control modifies content in some way.
+
+### Data Model
+- A data model represents the structure of the information stored in an app.
 
 ### Delegate
 - Object that acts on behalf of or in coordination with another object.   The delegating object holds a reference to the other object (delegate) and sends a message telling them about an event about to be handled or that has just been handled.  A delegate can then respond to these changes.
