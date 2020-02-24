@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class CatTableViewController: UITableViewController {
     
@@ -87,23 +88,48 @@ class CatTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            case "AddItem":
+                os_log("Adding a new cat", log: OSLog.default, type: .debug)
+                
+            case "ShowDetail":
+                guard let catDetailViewController = segue.destination as? CatViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+            }
+                guard let selectedCatCell = sender as? CatTableViewCell else {
+                    fatalError("Unexpected sender: \(sender)")
+            }
+                guard let indexPath = tableView.indexPath(for: selectedCatCell) else {
+                    fatalError("The selected cell is not being displayed by the table")
+            }
+                let selectedCat = cats[indexPath.row]
+                catDetailViewController.cat = selectedCat
+            
+            default:
+                fatalError("Unexpected Segue Identifier: \(segue.identifier)")
+        }
     }
-    */
     
     // MARK: Actions
     @IBAction func unwindToCatList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? CatViewController, let cat = sourceViewController.cat {
-            // Add a new cat
-            let newIndexPath = IndexPath(row: cats.count, section:0)
-            cats.append(cat)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing cat
+                cats[selectedIndexPath.row] = cat
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                // Add a new cat
+                let newIndexPath = IndexPath(row: cats.count, section:0)
+                cats.append(cat)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
     //MARK: Private Methods

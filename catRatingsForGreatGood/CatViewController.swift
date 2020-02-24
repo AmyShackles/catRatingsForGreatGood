@@ -30,16 +30,31 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         
         // Handle the text field's user input through delegate callbacks
         catNameTextField.delegate = self
-        // Do any additional setup after loading the view.
+        
+        // Set up views if editing an existing cat
+        if let cat = cat {
+            navigationItem.title = cat.name
+            catNameTextField.text = cat.name
+            photoImageView.image = cat.photo
+            ratingControl.rating = cat.rating
+        }
+        // Enable the save button only if the text field has a valid name
+        updateSaveButtonState()
     }
     
     // MARK: UITextFieldDelegate
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the save button while editing
+        saveButton.isEnabled = false
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard
         textField.resignFirstResponder()
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+        navigationItem.title = textField.text
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -61,6 +76,21 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     }
     
     // MARK: Navigation
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
+
+    }
     
     // This method lets you configure a view controller before it's presented
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -98,5 +128,11 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    // MARK: Private Methods
+    private func updateSaveButtonState() {
+        // Disable the save button if the text field is empty
+        let text = catNameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
 }
 

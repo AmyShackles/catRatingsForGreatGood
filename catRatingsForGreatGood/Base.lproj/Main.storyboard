@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CatViewController" customModule="catRatingsForGreatGood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dmy-j4-qs6">
-                                <rect key="frame" x="20" y="118" width="335" height="344"/>
+                                <rect key="frame" x="20" y="106" width="335" height="376"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Cat's Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhp-NQ-5tN">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
@@ -24,7 +24,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-Q0-qiF">
-                                        <rect key="frame" x="25.5" y="8" width="284" height="284"/>
+                                        <rect key="frame" x="9.5" y="8" width="316" height="316"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Yrr-Q0-qiF" secondAttribute="height" multiplier="1:1" id="U8a-2b-tpP"/>
@@ -35,7 +35,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sCO-33-DRL" customClass="RatingControl" customModule="catRatingsForGreatGood" customModuleProvider="target">
-                                        <rect key="frame" x="41.5" y="300" width="252" height="44"/>
+                                        <rect key="frame" x="41.5" y="332" width="252" height="44"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="size" keyPath="starSize">
                                                 <size key="value" width="44" height="44"/>
@@ -61,7 +61,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Cat" id="UkJ-VM-fGe">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pZD-C8-bxL"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pZD-C8-bxL">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="5Xq-he-53B"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ggU-Po-pAe">
                             <connections>
                                 <segue destination="VU2-22-Zpi" kind="unwind" unwindAction="unwindToCatListWithSender:" id="icU-Lo-ZRR"/>
@@ -132,6 +136,7 @@
                                     <outlet property="nameLabel" destination="ppe-Hw-heh" id="9cG-GU-Fuf"/>
                                     <outlet property="photoImageView" destination="dan-pg-RGb" id="zVT-yQ-8rE"/>
                                     <outlet property="ratingControl" destination="p8c-oQ-PPh" id="mnj-9p-cRU"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="anc-LO-HuB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -186,10 +191,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWc-OF-2Ci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="126.38680659670166"/>
+            <point key="canvasLocation" x="1070" y="576"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="500" height="375"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="anc-LO-HuB"/>
+    </inferredMetricsTieBreakers>
 </document>
