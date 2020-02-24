@@ -20,8 +20,13 @@ class CatTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        // Load the sample data.
-        loadSampleCats()
+        // Load any saved cats, otherwise load sample data
+        if let savedCats = loadCats() {
+            cats += savedCats
+        } else {
+            // Load the sample data
+            loadSampleCats()
+        }
     }
 
     // MARK: - Table view data source
@@ -68,6 +73,7 @@ class CatTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             cats.remove(at: indexPath.row)
+            saveCats()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -131,6 +137,9 @@ class CatTableViewController: UITableViewController {
                 cats.append(cat)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            
+            // Save the cats
+            saveCats()
         }
     }
     //MARK: Private Methods
@@ -210,6 +219,29 @@ class CatTableViewController: UITableViewController {
         
         cats += [cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8, cat9, cat10, cat11, cat12, cat13, cat14, cat15]
     }
+    private func saveCats() {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: cats, requiringSecureCoding: false)
+            try data.write(to: Cat.ArchiveURL)
+        } catch {
+            os_log("Could not save cats", log: OSLog.default, type: .debug)
+        }
+    }
     
+    private func loadCats() -> [Cat]? {
+        if let savedCats = NSData(contentsOf: Cat.ArchiveURL) {
+            do {
+                let data = Data(referencing:savedCats)
+                
+                if let loadedCats = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Array<Cat> {
+                    return loadedCats
+                }
+            } catch {
+                os_log("Could not load cats", log: OSLog.default, type: .error)
+                return nil
+            }
+        }
+        return nil
+    }
 
 }
